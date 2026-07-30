@@ -10,7 +10,24 @@
   <rights>All rights reserved 2026, wuliwa</rights>
   <subtitle>唔喵~</subtitle>
   <title>wuli-wa?</title>
-  <updated>2026-07-10T20:37:13.291Z</updated>
+  <updated>2026-07-30T17:18:17.550Z</updated>
+  <entry>
+    <author>
+      <name>wuliwa</name>
+    </author>
+    <content>
+      <![CDATA[<p>oka~今天要看的是什么奇怪小知识呢~~a，是zip！</p><h2 id="zip相关内容"><a href="#zip相关内容" class="headerlink" title="zip相关内容"></a>zip相关内容</h2><p>zip文件主要由三部分构成：压缩源文件数据区+核心目录+目录结束标识   </p><p><strong>压缩源文件数据区</strong>      </p><ul><li>0~3（四个字节） <code>50 4B 03 04</code>：这是头文件标记<code>0x04034b50</code></li><li>4~5（两个字节） <code>14 00</code>：解压文件所需 pkware 版本</li><li>6~7 <strong><code>00 00</code>：全局方式位标记（有无加密）</strong></li><li>8~9 <code>08 00</code>：压缩方式</li><li>10~11：最后修改文件时间</li><li>12~13：最后修改文件日期</li><li>14~17：CRC-32校验</li><li>18~21：压缩后尺寸</li><li>22~25：未压缩尺寸</li><li>26~27：文件名长度</li><li>28~29：扩展数据长度</li><li>30~30+n（n个字节）：文件名</li><li>30+n~30+n+m（m个字节）：扩展数据</li></ul><p><strong>核心目录</strong>   </p><ul><li>0~3 <code>50 4B 01 02</code>：目录中文件文件头标记<code>0x02014b50</code></li><li>4~5 <code>3F 00</code>：压缩使用的 pkware 版本</li><li>6~7 <code>14 00</code>：解压文件所需 pkware 版本</li><li>8~9 <strong><code>00 00</code>：全局方式位标记（有无加密，有无进行伪加密）</strong></li><li>10~11 <code>08 00</code>：压缩方式</li><li>12~13：最后修改文件时间</li><li>14~15：最后修改文件日期</li><li>16~19：CRC-32校验</li><li>20~23：压缩后尺寸</li><li>24~27：未压缩尺寸</li><li>28~29：文件名长度</li><li>30~31：扩展字段长度</li><li>32~33：文件注释长度</li><li>34~35：磁盘开始号（一般为0）</li><li>36~37：内部文件属性（一般为0）</li><li>38~41：外部文件属性</li><li>42~45：局部头部偏移量</li></ul><p><strong>目录结束标识</strong>  </p><ul><li>0~3 <code>50 4B 05 06</code>：目录结束标识标记<code>0x06054b50</code></li><li>4~5：当前磁盘编号</li><li>6~7：目录区开始磁盘编号</li><li>8~9：本磁盘上纪录总数</li><li>10~11：目录区中纪录总数&#x2F;即zip压缩包中的文件总数</li><li>12~15：目录区尺寸大小</li><li>16~19：目录区对第一张磁盘的偏移量</li><li>20~21：ZIP 文件注释内容的长度</li><li>22~22+n（n个字节）：注释内容</li></ul><h2 id="伪加密"><a href="#伪加密" class="headerlink" title="伪加密"></a>伪加密</h2><p>目录区域的全局方位标记第二位数字的奇偶决定是否加密，若将其改为奇数则判定为加密（此时数据区的全局方位标记第二位是偶数时，实际是伪加密），偶数则判定为未加密。未加密的文件将数据区和目录区都改动也能产生伪加密效果，所以根据目录区判断是否为伪加密不一定准确。    </p><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>使用16进制编辑器打开zip文件，将全局方位标记第二位改成0，此时zip就回到了未加密状态。<br>或者使用binwalk、ZipCenOp.jar等工具，最终也能打开伪加密zip文件。<br><strong>注：mac系统不受伪加密影响，能直接打开伪加密zip文件sa~</strong><br><em>（似乎部分Linux系统面对zip伪加密也能做到和mac一样的效果？）</em></p>]]>
+    </content>
+    <id>http://example.com/2026/07/23/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/</id>
+    <link href="http://example.com/2026/07/23/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/"/>
+    <published>2026-07-23T14:04:42.000Z</published>
+    <summary>
+      <![CDATA[<p>oka~今天要看的是什么奇怪小知识呢~~a，是zip！</p>
+<h2 id="zip相关内容"><a href="#zip相关内容" class="headerlink" title="zip相关内容"></a>zip相关内容</h2><p>zip文件主要由三部分构成：压]]>
+    </summary>
+    <title>zip伪加密</title>
+    <updated>2026-07-30T17:18:17.550Z</updated>
+  </entry>
   <entry>
     <author>
       <name>wuliwa</name>
